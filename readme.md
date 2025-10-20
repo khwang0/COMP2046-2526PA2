@@ -48,8 +48,10 @@ Some methods are labeled as completed or given. Please don't make any change on 
 The best description of the game in English is given here: https://boardgamegeek.com/thread/76810/schildkroten-rennen-draft-rules-in-english
 
 Video tutorials of the game are available: 
-- (Putonghua) https://www.youtube.com/watch?v=Cve8dsEGxZs
-- (English) to-be-prepared by TAs and Kevin
+- Cantonese: https://youtu.be/AM4v1prCzTk
+- English: https://youtu.be/K8P7djudUTA
+- Putonghua: https://www.youtube.com/watch?v=Cve8dsEGxZs
+
 
 
 
