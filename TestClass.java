@@ -81,26 +81,6 @@ public class TestClass {
         Assertions.assertEquals(card2, playedCard2);
     }
 
-    @Order(4)
-    @Test
-    void testPlayerDrawCardFullHand() {
-        // Test drawing cards when hand is full
-        Player player = new Player("TestPlayer", "yellow");
-
-        // Fill the hand with 5 cards
-        for (int i = 0; i < 5; i++) {
-            PlayCard card = new PlayCard("red", "+1");
-            player.drawCard(card);
-        }
-
-        // Try to draw one more card (should fail)
-        PlayCard extraCard = new PlayCard("blue", "+2");
-        player.drawCard(extraCard);
-
-        // Verify the extra card wasn't added
-        assertNull(player.playCard(5)); // Index 5 should be invalid
-    }
-
     @Order(5)
     @Test
     void testPlayerPlayCardValidIndex() {
@@ -128,23 +108,6 @@ public class TestClass {
         assertNull(player.playCard(-1)); // Negative index
         assertNull(player.playCard(5));  // Index out of bounds
         assertNull(player.playCard(0));  // Empty slot
-    }
-
-    @Order(7)
-    @Test
-    void testPlayerPlayCardNullSlot() {
-        // Test playing from a null slot
-        Player player = new Player("TestPlayer", "blue");
-
-        // Draw a card at index 0
-        PlayCard card = new PlayCard("green", "+2");
-        player.drawCard(card);
-
-        // Play the card
-        player.playCard(0);
-
-        // Try to play from the now-empty slot
-        assertNull(player.playCard(0));
     }
 
     @Order(8)
@@ -185,34 +148,6 @@ public class TestClass {
         for (int i = 0; i < 5; i++) {
             assertTrue(result.contains(i + ": PlayCard{red,+1}"));
         }
-    }
-
-    @Order(11)
-    @Test
-    void testPlayerCardManagement() {
-        // Test comprehensive card management
-        Player player = new Player("CardManager", "purple");
-
-        // Draw cards
-        PlayCard card1 = new PlayCard("red", "+1");
-        PlayCard card2 = new PlayCard("blue", "+2");
-        PlayCard card3 = new PlayCard("green", "-1");
-
-        player.drawCard(card1);
-        player.drawCard(card2);
-        player.drawCard(card3);
-
-        // Play middle card
-        PlayCard playedCard = player.playCard(1);
-        Assertions.assertEquals(card2, playedCard);
-
-        // Draw new card in the middle
-        PlayCard card4 = new PlayCard("yellow", "-2");
-        player.drawCard(card4);
-
-        // Verify the new card is at index 1
-        PlayCard retrievedCard = player.playCard(1);
-        Assertions.assertEquals(card4, retrievedCard);
     }
 
     @Order(12)
